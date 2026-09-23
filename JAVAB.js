@@ -388,7 +388,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // reemplazar cada URL de ejemplo por el enlace definitivo (Google Maps,
 // álbum de fotos compartido, formulario de RSVP, etc.).
 function openLocation(location) {
-    showToast('Ejemplo', 'Aquí iría el enlace a Google Maps con la dirección real del evento.');
+    const urls = {
+        ceremony: 'https://maps.app.goo.gl/CcEydytYLp9wV98b8',
+        reception: 'https://maps.app.goo.gl/mJMF11EpTcgLGeJJ6'
+    };
+    const url = urls[location];
+    if (url) {
+        window.open(url, '_blank', 'noopener');
+    }
 }
 
 function sharePhotos() {
@@ -440,7 +447,7 @@ function closeGiftModal(event) {
 }
 
 function confirmAttendance() {
-    showToast('Ejemplo', 'Aquí iría el enlace al formulario real de confirmación de asistencia.');
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdIYoM33yAkMmS4DZCRVmO9_IE0gZT4eEw8cV0r2PgWlYE0Ag/viewform?usp=header', '_blank', 'noopener');
 }
 
 // Sistema de Toast
