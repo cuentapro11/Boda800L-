@@ -398,8 +398,18 @@ function openLocation(location) {
     }
 }
 
+const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/p9PGQHWrvLG1Bpj28';
+
 function sharePhotos() {
-    showToast('Ejemplo', 'Aquí iría el enlace al álbum donde los invitados suben sus fotos.');
+    // Abre el álbum compartido de Google Fotos en una pestaña nueva
+    // (en el celular abre la app de Google Fotos si está instalada).
+    const win = window.open(PHOTO_ALBUM_URL, '_blank');
+    if (win) {
+        win.opener = null;
+    } else {
+        // Si el navegador bloqueó la pestaña nueva, abrir en la misma
+        window.location.href = PHOTO_ALBUM_URL;
+    }
 }
 
 function showDressCode() {
